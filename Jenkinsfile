@@ -3,8 +3,14 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    image 'python:3.10.7-alpine'
+                }
+            }
             steps {
-                echo 'Building..'
+                //echo 'Building..'*
+                sh 'python--version'
             }
         }
         stage('Test') {
@@ -12,10 +18,6 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Integration Test') {
-            steps {
-                echo 'Integration....'
-            }
-        }
+
     }
 }
