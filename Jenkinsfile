@@ -1,7 +1,7 @@
 pipeline {
     
     agent { 
-        docker { 
+        any { 
             image 'python' 
         } 
     }
@@ -11,6 +11,7 @@ pipeline {
             
             steps {
                 echo 'Building..'
+                sh 'python --version'
 
             }
         }
